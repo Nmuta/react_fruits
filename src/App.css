@@ -38,3 +38,14 @@
   width: 100px;
   height: 100px;
 }
+
+.fruit_box div{
+  display:block;
+}
+
+img.fruit{
+  width: 30px;
+  display:block;
+  clear:both;
+  margin: 1px;
+}

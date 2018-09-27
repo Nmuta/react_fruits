@@ -7,6 +7,25 @@ import Fruit from './Fruit';
 
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={fruits: fruits, new_fruit: ""}
+    this.addFruit = this.addFruit.bind(this);
+    this.captureFruitChange = this.captureFruitChange.bind(this);
+  }
+
+  captureFruitChange(e){
+    this.setState({new_fruit: e.target.value});
+    e.preventDefault();
+  }
+
+  addFruit(){
+    let current_fruits  = this.state.fruits;
+    let nu = {name: this.state.new_fruit, price: "$1.50", origin: "Florida"};
+    current_fruits.push(nu);
+    this.setState({fruits: current_fruits});
+  }
+
   render() {
     return (
       <div className="App">
@@ -14,8 +33,15 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
+         <div>
+           new fruit: {this.state.new_fruit}
+         </div>
+         <button onClick={this.addFruit}>add fruit</button>
+         <div>
+           <input onChange={this.captureFruitChange}/>
+         </div>
         <p className="App-intro">
-            {fruits.map(fruit => <Fruit fruit_name={fruit} /> )}
+            {this.state.fruits.map(fruit => <Fruit fruit={fruit} /> )}
         </p>
       </div>
     );
