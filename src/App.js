@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import fruits from './fruits';
 import Fruit from './Fruit';
+import Footer from './Footer';
+
+const copyright = `copyright 2018`;
+const nombre = "Dan Phonelath";
 
 
 
@@ -43,6 +47,8 @@ class App extends Component {
         <p className="App-intro">
             {this.state.fruits.map(fruit => <Fruit fruit={fruit} /> )}
         </p>
+        <Footer copyright={copyright}  nombre={nombre}/>
+
       </div>
     );
   }
